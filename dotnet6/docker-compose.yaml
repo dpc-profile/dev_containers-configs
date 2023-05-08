@@ -2,10 +2,7 @@ version: '3.9'
 
 services:
   app:
-    build: .
-    ports:
-      - 7298:7298
-    
+    build: .    
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://localhost;http://localhost
