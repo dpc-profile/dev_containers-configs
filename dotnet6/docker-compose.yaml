@@ -4,8 +4,7 @@ services:
   app:
     build: .    
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://localhost;http://localhost
-    
     volumes:
-      - .:/source
+      - .:/src
