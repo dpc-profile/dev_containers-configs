@@ -21,6 +21,15 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
 # -------------------------------------------------------------
+# Adiciona o tools para poder usar o comando dotnet-ef
+ENV PATH=$PATH:/home/vscode/.dotnet/tools
+
+# Nesse ponto, como os arquivos ainda não estão no container,
+# é preciso copiar para dentro
+COPY .devcontainer/dotnet_tools-install.sh /tmp/dotnet_tools-install.sh 
+
+# Instala as ferramentas do dotnet
+RUN /tmp/dotnet_tools-install.sh
 
 # Faz o contaienr ficar vivo
 CMD ["tail", "-f", "/dev/null"]
